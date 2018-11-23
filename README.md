@@ -1,4 +1,4 @@
-**Spring Boot JPA Example**
+🍃 **Spring Boot JPA Example**
 
 In this project i have integrate Spring boot with JPA and Mysql. 
 I have developed a simple CRUD oriented REST API with MySQL database using Hibernate, 
