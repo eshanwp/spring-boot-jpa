@@ -6,9 +6,14 @@ retrieving the records from database and updating or deleting them within transa
 
 Following technologies being used
 
-Spring Boot 2.1.0.RELEASE
-Spring Boot Data JPA
-Mysql Server 5.7
-log4j
-JDK 1.8
-Maven 3
+* Spring Boot 2.1.0.RELEASE
+
+* Spring Boot Data JPA
+
+* Mysql Server 5.7
+
+* log4j
+
+* JDK 1.8
+
+* Maven 3
