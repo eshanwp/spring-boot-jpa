@@ -68,7 +68,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "user_id")
+    @Column(name = "user_id",nullable = false, insertable = false, updatable = false)
     public int getUserId() {
         return userId;
     }
@@ -97,7 +97,7 @@ public class Post {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     public User getUserByUserId() {
         return userByUserId;
     }

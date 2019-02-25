@@ -2,18 +2,20 @@ package com.springboot.jpa.spring.converter;
 
 import com.springboot.jpa.spring.dto.PostDto;
 import com.springboot.jpa.spring.entity.Post;
+import com.springboot.jpa.spring.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component
 public class PostConverter {
 
-    public static Post dtoToEntity(PostDto postDto){
+    public static Post dtoToEntity(PostDto postDto, User user){
         Post post = new Post();
         post.setId(postDto.getId());
         post.setTitle(postDto.getTitle());
         post.setDescription(postDto.getDescription());
         post.setCreatedAt(postDto.getCreatedAt());
         post.setUpdatedAt(postDto.getUpdatedAt());
+        post.setUserByUserId(user);
         return post;
     }
 

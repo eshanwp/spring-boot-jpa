@@ -1,5 +1,7 @@
 package com.springboot.jpa.spring.dto;
 
+import com.springboot.jpa.spring.entity.User;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 
@@ -11,6 +13,7 @@ public class PostDto implements Serializable {
     private Timestamp createdAt;
     private Timestamp updatedAt;
     private int userId;
+    private User user;
 
     public PostDto(int id, String title, String description, Timestamp createdAt, Timestamp updatedAt, int userId) {
         this.id = id;
@@ -70,6 +73,14 @@ public class PostDto implements Serializable {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

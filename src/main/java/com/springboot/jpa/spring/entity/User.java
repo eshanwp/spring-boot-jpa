@@ -70,7 +70,7 @@ public class User{
         return Objects.hash(id, email, userName, password);
     }
 
-    @OneToMany(mappedBy = "userByUserId")
+    @OneToMany(mappedBy = "userByUserId", cascade = CascadeType.ALL)
     public Collection<Post> getPostsById() {
         return postsById;
     }

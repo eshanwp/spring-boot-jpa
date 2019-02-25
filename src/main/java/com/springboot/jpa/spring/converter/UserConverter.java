@@ -1,13 +1,19 @@
 package com.springboot.jpa.spring.converter;
 
+import com.springboot.jpa.spring.dto.PostDto;
 import com.springboot.jpa.spring.dto.UserDto;
+import com.springboot.jpa.spring.entity.Post;
 import com.springboot.jpa.spring.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
 @Component
 public class UserConverter {
+
+    @Autowired
+    private PostConverter postConverter;
 
     public User dtoToEntity(UserDto userDto){
 
@@ -16,7 +22,7 @@ public class UserConverter {
         user.setEmail(userDto.getEmail());
         user.setUserName(userDto.getUserName());
         user.setPassword(userDto.getPassword());
-        user.setPostsById(userDto.getPostDtos().stream().map(PostConverter::dtoToEntity).collect(Collectors.toList()));
+        user.setPostsById(userDto.getPostDtos().stream().map((PostDto postDto) -> PostConverter.dtoToEntity(postDto,user)).collect(Collectors.toList()));
         return user;
 
     }
@@ -30,7 +36,7 @@ public class UserConverter {
         userDto.setPassword(user.getPassword());
 
         //One to Many
-        userDto.setPostDtos(user.getPostsById().stream().map(PostConverter::entityToDto).collect(Collectors.toList()));
+//        userDto.setPostDtos(user.getPostsById().stream().map(PostConverter::entityToDto).collect(Collectors.toList()));
 
         //Many to Many
 //        userDto.setRoleUserDtos(user.getRoleUsersById().stream().map(RoleConverter::entityToDto).collect(Collectors.toList()));
